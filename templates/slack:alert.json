@@ -1,3 +1,3 @@
 {
-  "text": "Workflow Alert [&lt;%= instance.label %&gt;] (&lt;%=instance.internalName%&gt;)"
+  "text": "Workflow Alert [<%= instance.label %>] (<%=instance.internalName%>)"
 }

@@ -1,0 +1,35 @@
+<srcSchema _cs="Workflows (dg)" created="2025-04-16 00:12:46.831Z" createdBy-id="0"
+           desc="Workflows definitions" entitySchema="xtk:srcSchema" extendedSchema="xtk:workflow"
+           img="xtk:workflow.png" label="Workflows" labelSingular="Workflow" lastModified="2025-06-25 00:55:56.372Z"
+           mappingType="sql" md5="2AF61657B1473EA5EBF55DE94F2A2039" modifiedBy-id="0"
+           name="workflow" namespace="dg" xtkschema="xtk:srcSchema">
+  <createdBy _cs="Administrator (admin)"/>
+  <modifiedBy _cs="Administrator (admin)"/>
+
+  <element desc="Slack Alert Definitions" img="dg:slackalert50px.png" label="Slack Alert"
+           labelSingular="Workflow" name="slackAlert" template="xtk:workflow:activity">
+
+    <attribute default="'dg:slackalert50px.png'" name="img"/>
+    <attribute default="'dg:slackAlert.js'" name="library"/>
+    <attribute name="label" type="string"/>
+    <attribute name="mode" type="integer"/>
+    <element label="Slack Template" name="slackTemplate" target="xtk:javascript"
+             type="link"/>
+    <element label="External account" name="extAccount" target="nms:extAccount" type="link"/>
+    <element desc="Slack Template JSON" edit="jsedit" name="script" type="memo" xml="true">
+      <default>'{
+  "text": "Workflow Alert [&lt;%= instance.label %&gt;] (&lt;%=instance.internalName%&gt;)"
+}'</default>
+    </element>
+
+    <element label="Temporary schema linked to the activity" name="extension" type="ANY"/>
+    <element name="transitions" template="xtk:workflow:doneAndError"/>
+  </element>
+
+  <element img="xtk:workflow.png" label="workflow" name="workflow">
+    <element name="activities" xml="true">
+      <element name="slackAlert" ref="slackAlert" unbound="true"/>
+    </element>
+  </element>
+
+</srcSchema>

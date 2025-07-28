@@ -1,0 +1,22 @@
+{
+  "text": "Workflow Alert [<%= instance.label %>] (<%=instance.internalName%>)",
+  "attachments": [
+    {
+      "color": "#FF0000",
+      "pretext": "Last Start <%=instance.lastStart%>",
+      "author_name": "Instance: <%=application.instanceName%>",
+      "title": "To access the workflow detail, please  [click here]",
+      "title_link": "<%=getOption("NmsServer_IntranetURL")%>/xtk/workflow.jssp?id=<%=instance.id%>",
+      "text": "`Some Text to Highlight`",
+      "fields": [
+        {
+          "title": "Priority",
+          "value": "High"
+        }
+      ],
+      "footer": "Adobe Campaign",
+      "footer_icon": "https://i.ibb.co/7JQxZ8g9/acc-logo.png",
+      "ts": <%=Date.now()%>
+    }
+  ]
+}
